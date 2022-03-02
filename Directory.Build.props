@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>EpsilonNet.CodingSchool2022.$(MSBuildProjectName)</RootNamespace>
+
+    <!-- I think this is a good default for all projects in this repo.
+    Stuff like decimal points will automatically look the same regardless
+    of the client's culture. It will be overridden in individual projects
+    only if it is needed. -->
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+</Project>
