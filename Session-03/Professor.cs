@@ -6,6 +6,10 @@ public class Professor : Person
 
     public Course[] Courses { get; set; }
 
+    public Professor()
+    {
+    }
+
     public void Teach(Course course, DateTime date)
     {
     }
