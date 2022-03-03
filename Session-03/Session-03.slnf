@@ -1,0 +1,8 @@
+{
+  "solution": {
+    "path": "..\\EpsilonNet.CodingSchool2022.sln",
+    "projects": [
+      "Session-03\\Session-03.csproj"
+    ]
+  }
+}
