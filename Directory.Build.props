@@ -4,7 +4,7 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>EpsilonNet.CodingSchool2022.$(MSBuildProjectName)</RootNamespace>
+    <RootNamespace>EpsilonNet.CodingSchool2022</RootNamespace>
 
     <!-- I think this is a good default for all projects in this repo.
     Stuff like decimal points will automatically look the same regardless

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-	<RootNamespace>Session_03</RootNamespace>
+	<RootNamespace>$(RootNamespace).Session_03</RootNamespace>
 	<Nullable>disable</Nullable>
   </PropertyGroup>
 </Project>
