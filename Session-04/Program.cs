@@ -33,9 +33,9 @@ Console.WriteLine();
 var array1 = new int[] { 2, 4, 9, 12 };
 var array2 = new int[] { 1, 3, 7, 10 };
 var multiplier = new ArrayMultiplier(array1, array2);
-int[] hadamardProduct = multiplier.CalculateHadamardProduct();
+int[] hadamardProduct = multiplier.CalculateProduct();
 
-Console.WriteLine($"The Hadamard product of {FormatArray(array1)} and {FormatArray(array2)} is {FormatArray(hadamardProduct)}");
+Console.WriteLine(FormatArray(hadamardProduct));
 Console.WriteLine();
 
 // 5.
