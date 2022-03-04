@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>$(RootNamespace).Session_04</RootNamespace>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+</Project>
