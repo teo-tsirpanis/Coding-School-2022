@@ -6,7 +6,7 @@ internal class UppercaseSpecificResolver : AbstractSpecificResolver
     {
     }
 
-    private string? FindLongestWord(string[] words)
+    private static string? FindLongestWord(string[] words)
     {
         string? longestWord = null;
         int longestWordLength = 0;
@@ -28,11 +28,24 @@ internal class UppercaseSpecificResolver : AbstractSpecificResolver
     {
         string[] words = content.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
-        string? longestWord = FindLongestWord(words);
+        if (words.Length < 1)
+        {
+            logger.Write("The string has less than two words.");
+            return null;
+        }
+        else
+            logger.Write($"The string consists of {words.Length} words.");
 
-        logger.Write($"The string consists of {words.Length} words.");
+        string longestWord = FindLongestWord(words)!;
+
 
         // It will automatically fail if there are no words in the input string.
-        return longestWord;
+        if (longestWord == null)
+        {
+            logger.Write("The string contains no words.");
+            return null;
+        }
+
+        return longestWord.ToUpper();
     }
 }
