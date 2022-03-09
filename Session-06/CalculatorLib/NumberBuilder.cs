@@ -48,7 +48,10 @@ internal class NumberBuilder
     public double GetValue()
     {
         string accumulatedString = _accumulator.ToString();
-        return double.Parse(accumulatedString, CultureInfo.InvariantCulture);
+        double result;
+        if (!double.TryParse(accumulatedString, NumberStyles.Number, CultureInfo.InvariantCulture, out result))
+            return 0;
+        return result;
     }
 
     public void Clear()

@@ -26,17 +26,25 @@ namespace EpsilonNet.CodingSchool2022.Session06
             btnNumber7.Enabled = _calculator.CanEnter(InputType.Number7);
             btnNumber8.Enabled = _calculator.CanEnter(InputType.Number8);
             btnNumber9.Enabled = _calculator.CanEnter(InputType.Number9);
+            btnDot.Enabled = _calculator.CanEnter(InputType.Dot);
             btnAdd.Enabled = _calculator.CanEnter(InputType.Add);
             btnSubtract.Enabled = _calculator.CanEnter(InputType.Subtract);
             btnMultiply.Enabled = _calculator.CanEnter(InputType.Multiply);
             btnDivide.Enabled = _calculator.CanEnter(InputType.Divide);
             btnPow.Enabled = _calculator.CanEnter(InputType.Pow);
             btnSquareRoot.Enabled = _calculator.CanEnter(InputType.SquareRoot);
+            btnEquals.Enabled = _calculator.CanFinish;
+        }
+
+        private void Log(string message)
+        {
+            tbEventLog.Text += message + Environment.NewLine;
         }
 
         private void EnterInput(InputType input)
         {
             _calculator.Enter(input);
+            Log($"Clicked {input}.");
             UpdateState();
         }
 
@@ -77,6 +85,7 @@ namespace EpsilonNet.CodingSchool2022.Session06
         private void btnClear_Click(object sender, EventArgs e)
         {
             _calculator.Clear();
+            Log("Clicked Clear");
             UpdateState();
         }
 
@@ -88,6 +97,7 @@ namespace EpsilonNet.CodingSchool2022.Session06
         private void btnEquals_Click(object sender, EventArgs e)
         {
             _calculator.Finish();
+            Log("Clicked Equals");
             UpdateState();
         }
     }

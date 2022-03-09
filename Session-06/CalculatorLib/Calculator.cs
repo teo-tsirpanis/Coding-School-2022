@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Globalization;
 
 namespace EpsilonNet.CodingSchool2022.CalculatorLib;
 
@@ -24,10 +25,12 @@ public class Calculator
 
         switch (_currentState)
         {
-            case State.NoInput:
+            case State.WaitingForOperand1:
                 return input.IsNumberElement();
             case State.WritingOperand1:
                 return isOperation || _op1Builder.CanEnter(input);
+            case State.WaitingForOperand2:
+                return input.IsNumberElement();
             case State.WritingOperand2:
                 return _op2Builder.CanEnter(input);
             default:
@@ -42,7 +45,7 @@ public class Calculator
 
         switch (_currentState)
         {
-            case State.NoInput:
+            case State.WaitingForOperand1:
                 _op1Builder.Enter(input);
                 _currentState = State.WritingOperand1;
                 break;
@@ -56,29 +59,49 @@ public class Calculator
                 }
 
                 _currentOperation = input;
-                _currentState = operationType == OperationType.UnaryOperation ? State.Finished : State.WritingOperand2;
+                if (operationType == OperationType.UnaryOperation)
+                {
+                    _currentState = State.Finished;
+                    _finalResultValue = PerformOperation(input, _op1Builder.GetValue(), 0);
+                    return;
+                }
+
+                _currentState = State.WaitingForOperand2;
                 break;
+            case State.WaitingForOperand2:
             case State.WritingOperand2:
                 _op2Builder.Enter(input);
+                _currentState = State.WritingOperand2;
                 break;
         }
     }
 
     public string GetDisplayText()
     {
-        if (_currentState == State.Finished)
-            return _finalResultValue.ToString();
-        else if (_currentState == State.WritingOperand2)
-            return _op2Builder.ToString();
-        else
-            return _op1Builder.ToString();
+        switch (_currentState)
+        {
+            case State.WritingOperand2:
+                return _op2Builder.ToString();
+            case State.Finished:
+                return _finalResultValue.ToString(CultureInfo.InvariantCulture);
+            default:
+                return _op1Builder.ToString();
+        }
+    }
+
+    public bool CanFinish
+    {
+        get
+        {
+            return _currentState == State.WritingOperand1 || _currentState == State.WritingOperand2;
+        }
     }
 
     public void Finish()
     {
         switch (_currentState)
         {
-            case State.NoInput:
+            case State.WaitingForOperand1:
                 _finalResultValue = 0;
                 break;
             case State.WritingOperand1:
@@ -121,13 +144,14 @@ public class Calculator
         _op1Builder.Clear();
         _op2Builder.Clear();
         _currentOperation = InputType.None;
-        _currentState = State.NoInput;
+        _currentState = State.WaitingForOperand1;
     }
 
     private enum State
     {
-        NoInput,
+        WaitingForOperand1,
         WritingOperand1,
+        WaitingForOperand2,
         WritingOperand2,
         Finished
     }
