@@ -2,6 +2,8 @@
 
 public class University : Institute
 {
+    public List<Professor> Professors { get; } = new List<Professor>();
+
     public List<Student> Students { get; } = new List<Student>();
 
     public List<Course> Courses { get; } = new List<Course>();

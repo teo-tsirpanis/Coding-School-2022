@@ -4,7 +4,7 @@ public class Professor : Person
 {
     public string Rank { get; set; }
 
-    public Course[] Courses { get; set; }
+    public List<Course> Courses { get; } = new List<Course>();
 
     public Professor()
     {
@@ -22,7 +22,7 @@ public class Professor : Person
 
     public new string GetName()
     {
-        if (Name.StartsWith("Dr. "))
+        if (Name == null || Name.StartsWith("Dr. "))
             return Name;
         return "Dr. " + Name;
     }
