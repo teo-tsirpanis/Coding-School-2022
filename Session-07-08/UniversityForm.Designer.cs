@@ -36,7 +36,14 @@
             System.Windows.Forms.Panel panel1;
             System.Windows.Forms.Button btnCommit;
             System.Windows.Forms.GroupBox gbStudentInfo;
+            System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label8;
+            System.Windows.Forms.Label label9;
+            System.Windows.Forms.Label label10;
             System.Windows.Forms.GroupBox gbGradeInfo;
+            System.Windows.Forms.Label label13;
+            System.Windows.Forms.Label label12;
+            System.Windows.Forms.Label label11;
             System.Windows.Forms.GroupBox gbCourseInfo;
             System.Windows.Forms.GroupBox gbSchedule;
             this.clbProfessorCourses = new System.Windows.Forms.CheckedListBox();
@@ -45,6 +52,13 @@
             this.tbProfName = new System.Windows.Forms.TextBox();
             this.cbCommitOnClose = new System.Windows.Forms.CheckBox();
             this.btnRevert = new System.Windows.Forms.Button();
+            this.clbStudentCourses = new System.Windows.Forms.CheckedListBox();
+            this.tbRegistrationId = new System.Windows.Forms.TextBox();
+            this.nudStudentAge = new System.Windows.Forms.NumericUpDown();
+            this.tbStudentName = new System.Windows.Forms.TextBox();
+            this.nudGradeValue = new System.Windows.Forms.NumericUpDown();
+            this.cbGradeCourse = new System.Windows.Forms.ComboBox();
+            this.cbGradeStudent = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpProfessors = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -72,10 +86,10 @@
             this.btnDeleteSchedule = new System.Windows.Forms.Button();
             this.lbSchedule = new System.Windows.Forms.ListBox();
             this.tpUniversity = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.nudUniversityYearsInService = new System.Windows.Forms.NumericUpDown();
             this.tbUniversityName = new System.Windows.Forms.TextBox();
+            this.nudUniversityYearsInService = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             gbProfessorInfo = new System.Windows.Forms.GroupBox();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -84,12 +98,23 @@
             panel1 = new System.Windows.Forms.Panel();
             btnCommit = new System.Windows.Forms.Button();
             gbStudentInfo = new System.Windows.Forms.GroupBox();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
             gbGradeInfo = new System.Windows.Forms.GroupBox();
+            label13 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
             gbCourseInfo = new System.Windows.Forms.GroupBox();
             gbSchedule = new System.Windows.Forms.GroupBox();
             gbProfessorInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbProfAge)).BeginInit();
             panel1.SuspendLayout();
+            gbStudentInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStudentAge)).BeginInit();
+            gbGradeInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGradeValue)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpProfessors.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -254,6 +279,14 @@
             // 
             // gbStudentInfo
             // 
+            gbStudentInfo.Controls.Add(label7);
+            gbStudentInfo.Controls.Add(this.clbStudentCourses);
+            gbStudentInfo.Controls.Add(this.tbRegistrationId);
+            gbStudentInfo.Controls.Add(this.nudStudentAge);
+            gbStudentInfo.Controls.Add(this.tbStudentName);
+            gbStudentInfo.Controls.Add(label8);
+            gbStudentInfo.Controls.Add(label9);
+            gbStudentInfo.Controls.Add(label10);
             gbStudentInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             gbStudentInfo.Location = new System.Drawing.Point(192, 3);
             gbStudentInfo.Name = "gbStudentInfo";
@@ -262,8 +295,101 @@
             gbStudentInfo.TabStop = false;
             gbStudentInfo.Text = "Student Info";
             // 
+            // label7
+            // 
+            label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            label7.Location = new System.Drawing.Point(347, 46);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(80, 24);
+            label7.TabIndex = 15;
+            label7.Text = "Courses";
+            // 
+            // clbStudentCourses
+            // 
+            this.clbStudentCourses.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.clbStudentCourses.FormattingEnabled = true;
+            this.clbStudentCourses.Location = new System.Drawing.Point(433, 47);
+            this.clbStudentCourses.MultiColumn = true;
+            this.clbStudentCourses.Name = "clbStudentCourses";
+            this.clbStudentCourses.Size = new System.Drawing.Size(169, 199);
+            this.clbStudentCourses.TabIndex = 14;
+            // 
+            // tbRegistrationId
+            // 
+            this.tbRegistrationId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.tbRegistrationId.Location = new System.Drawing.Point(183, 138);
+            this.tbRegistrationId.Name = "tbRegistrationId";
+            this.tbRegistrationId.Size = new System.Drawing.Size(134, 26);
+            this.tbRegistrationId.TabIndex = 13;
+            this.tbRegistrationId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberOnly_KeyPress);
+            // 
+            // nudStudentAge
+            // 
+            this.nudStudentAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.nudStudentAge.Location = new System.Drawing.Point(102, 92);
+            this.nudStudentAge.Minimum = new decimal(new int[] {
+            18,
+            0,
+            0,
+            0});
+            this.nudStudentAge.Name = "nudStudentAge";
+            this.nudStudentAge.Size = new System.Drawing.Size(74, 26);
+            this.nudStudentAge.TabIndex = 12;
+            this.nudStudentAge.Value = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            // 
+            // tbStudentName
+            // 
+            this.tbStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.tbStudentName.Location = new System.Drawing.Point(102, 46);
+            this.tbStudentName.Name = "tbStudentName";
+            this.tbStudentName.Size = new System.Drawing.Size(161, 26);
+            this.tbStudentName.TabIndex = 11;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            label8.Location = new System.Drawing.Point(23, 140);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(130, 24);
+            label8.TabIndex = 10;
+            label8.Text = "Registration ID";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            label9.Location = new System.Drawing.Point(23, 94);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(45, 24);
+            label9.TabIndex = 9;
+            label9.Text = "Age";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            label10.Location = new System.Drawing.Point(23, 48);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(61, 24);
+            label10.TabIndex = 8;
+            label10.Text = "Name";
+            // 
             // gbGradeInfo
             // 
+            gbGradeInfo.Controls.Add(label13);
+            gbGradeInfo.Controls.Add(this.nudGradeValue);
+            gbGradeInfo.Controls.Add(this.cbGradeCourse);
+            gbGradeInfo.Controls.Add(this.cbGradeStudent);
+            gbGradeInfo.Controls.Add(label12);
+            gbGradeInfo.Controls.Add(label11);
             gbGradeInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             gbGradeInfo.Location = new System.Drawing.Point(192, 3);
             gbGradeInfo.Name = "gbGradeInfo";
@@ -271,6 +397,64 @@
             gbGradeInfo.TabIndex = 3;
             gbGradeInfo.TabStop = false;
             gbGradeInfo.Text = "Grade Info";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            label13.Location = new System.Drawing.Point(38, 163);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(62, 24);
+            label13.TabIndex = 5;
+            label13.Text = "Grade";
+            // 
+            // nudGradeValue
+            // 
+            this.nudGradeValue.Location = new System.Drawing.Point(183, 167);
+            this.nudGradeValue.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudGradeValue.Name = "nudGradeValue";
+            this.nudGradeValue.Size = new System.Drawing.Size(120, 20);
+            this.nudGradeValue.TabIndex = 4;
+            // 
+            // cbGradeCourse
+            // 
+            this.cbGradeCourse.FormattingEnabled = true;
+            this.cbGradeCourse.Location = new System.Drawing.Point(183, 105);
+            this.cbGradeCourse.Name = "cbGradeCourse";
+            this.cbGradeCourse.Size = new System.Drawing.Size(121, 21);
+            this.cbGradeCourse.TabIndex = 3;
+            // 
+            // cbGradeStudent
+            // 
+            this.cbGradeStudent.FormattingEnabled = true;
+            this.cbGradeStudent.Location = new System.Drawing.Point(183, 44);
+            this.cbGradeStudent.Name = "cbGradeStudent";
+            this.cbGradeStudent.Size = new System.Drawing.Size(121, 21);
+            this.cbGradeStudent.TabIndex = 2;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            label12.Location = new System.Drawing.Point(38, 102);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(71, 24);
+            label12.TabIndex = 1;
+            label12.Text = "Course";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            label11.Location = new System.Drawing.Point(38, 41);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(74, 24);
+            label11.TabIndex = 0;
+            label11.Text = "Student";
             // 
             // gbCourseInfo
             // 
@@ -571,25 +755,15 @@
             this.tpUniversity.Text = "University";
             this.tpUniversity.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // tbUniversityName
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label5.Location = new System.Drawing.Point(129, 87);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 24);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Name";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label6.Location = new System.Drawing.Point(129, 160);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(146, 24);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Years in Service";
+            this.tbUniversityName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbUniversityName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.tbUniversityName.Location = new System.Drawing.Point(330, 82);
+            this.tbUniversityName.Name = "tbUniversityName";
+            this.tbUniversityName.Size = new System.Drawing.Size(188, 29);
+            this.tbUniversityName.TabIndex = 3;
             // 
             // nudUniversityYearsInService
             // 
@@ -604,15 +778,25 @@
             this.nudUniversityYearsInService.Size = new System.Drawing.Size(90, 29);
             this.nudUniversityYearsInService.TabIndex = 2;
             // 
-            // tbUniversityName
+            // label6
             // 
-            this.tbUniversityName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbUniversityName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.tbUniversityName.Location = new System.Drawing.Point(330, 82);
-            this.tbUniversityName.Name = "tbUniversityName";
-            this.tbUniversityName.Size = new System.Drawing.Size(188, 29);
-            this.tbUniversityName.TabIndex = 3;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label6.Location = new System.Drawing.Point(129, 160);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(146, 24);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Years in Service";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label5.Location = new System.Drawing.Point(129, 87);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 24);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Name";
             // 
             // UniversityForm
             // 
@@ -632,6 +816,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbProfAge)).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            gbStudentInfo.ResumeLayout(false);
+            gbStudentInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStudentAge)).EndInit();
+            gbGradeInfo.ResumeLayout(false);
+            gbGradeInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGradeValue)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpProfessors.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -689,6 +879,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbUniversityName;
         private System.Windows.Forms.NumericUpDown nudUniversityYearsInService;
+        private System.Windows.Forms.CheckedListBox clbStudentCourses;
+        private System.Windows.Forms.TextBox tbRegistrationId;
+        private System.Windows.Forms.NumericUpDown nudStudentAge;
+        private System.Windows.Forms.TextBox tbStudentName;
+        private System.Windows.Forms.NumericUpDown nudGradeValue;
+        private System.Windows.Forms.ComboBox cbGradeCourse;
+        private System.Windows.Forms.ComboBox cbGradeStudent;
     }
 }
 

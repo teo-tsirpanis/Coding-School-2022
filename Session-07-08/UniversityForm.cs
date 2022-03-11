@@ -49,6 +49,10 @@ namespace EpsilonNet.CodingSchool2022.Session_07_08
 
         private University LoadUniversity(bool notifyDataNotFound)
         {
+            MessageBox.Show(@"The assignment was either too big to be done in two days, or I tried to overengineer it.
+The UI is mostly ready, the underlying domain model is ready (including the JSON persistence), what remains is connecting the two.
+
+Looks like Windows Forms is not my forte.", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Error);
             try
             {
                 return UniversitySerialization.ReadFromFile(JsonFileName) ?? CreateUniversity();
@@ -113,6 +117,13 @@ namespace EpsilonNet.CodingSchool2022.Session_07_08
             var newProf = new Professor();
             _university.Professors.Add(newProf);
             ActiveProfessor = newProf;
+        }
+
+        private void numberOnly_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char c = e.KeyChar;
+            if (!char.IsControl(c) && !char.IsDigit(c))
+                e.Handled = true;
         }
     }
 }
