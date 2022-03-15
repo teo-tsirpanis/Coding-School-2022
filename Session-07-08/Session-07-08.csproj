@@ -3,6 +3,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>$(RootNamespace).Session07_08</RootNamespace>
     <!-- https://github.com/dotnet/winforms/issues/6797 -->
     <InvariantGlobalization>false</InvariantGlobalization>
   </PropertyGroup>
