@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Session-06", "Session-06", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityLib", "UniversityLib\UniversityLib.csproj", "{F0E7792F-2013-4702-A66F-EAF110875B4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Session-07-08", "Session-07-08\Session-07-08.csproj", "{E9E21BA7-8225-4AC8-9C47-1BC01F4CAF9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Session-07-08", "Session-07-08\Session-07-08.csproj", "{E9E21BA7-8225-4AC8-9C47-1BC01F4CAF9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
