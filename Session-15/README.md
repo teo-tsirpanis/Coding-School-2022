@@ -4,7 +4,7 @@
 
 ## Πως μπορούμε να κάνουμε ένα Request σε ένα εξωτερικό API χωρίς να γνωρίζει ολόκληρο το url μας;
 
-Δίνοντας στο header `Referrer-Policy` κάποια τιμή εκτώς των `no-referrer-when-downgrade` ή `unsafe-url`, ή παραλείποντάς τον εντελώς.
+Δίνοντας στο header `Referrer-Policy` κάποια τιμή εκτός των `no-referrer-when-downgrade` ή `unsafe-url`, ή παραλείποντάς τον εντελώς.
 
 ## Αν κάνω ενα GET request και ζητήσω ενα jpeg image, το response τι content-type πρεπει να εχει;
 
