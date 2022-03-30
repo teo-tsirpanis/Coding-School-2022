@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled Document</title>
+    <!-- I wish I could use modules, but doesn't work well without a server. -->
+    <script defer src="business_logic.js"></script>
+    <script defer src="ui.js"></script>
+    <style>
+        .selected {
+            outline: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Coding School 2022 - Session 20</h1>
+        <h3>Theodore Tsirpanis</h3>
+    </header>
+    <main>
+        <section>
+            <h2>Task 1</h2>
+            <input id="reverse-input" placeholder="Write a string!">
+            <p>Your string reversed is: <span id="reverse-output"></span></p>
+        </section>
+        <hr>
+        <section>
+            <h2>Task 3</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                    </tr>
+                </thead>
+                <tbody id="customer-details">
+                </tbody>
+            </table>
+            <form>
+                <label>
+                    Name
+                    <input id="customer-name" type="text" required>
+                </label>
+                <label>
+                    Surname
+                    <input id="customer-surname" type="text" required>
+                </label>
+                <label>
+                    Age
+                    <input id="customer-age" type="number" min="1" max="100" step="1" required>
+                </label>
+                <label>
+                    Gender
+                    <select id="customer-gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Something Else</option>
+                    </select>
+                </label>
+            </form>
+            <button id="btn-add">Add customer</button>
+            <button id="btn-update">Update customer</button>
+            <button id="btn-delete" disabled>Delete customer</button>
+        </section>
+    </main>
+</body>
+
+</html>
