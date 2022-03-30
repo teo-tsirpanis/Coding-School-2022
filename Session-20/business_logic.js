@@ -1,22 +1,22 @@
 // 1.
-function reverseString(str) {
+/* export */ function reverseString(str) {
     return str.split("").reverse().join("");
 }
 
 // 2.
-function isPalindrome(str) {
+/* export */ function isPalindrome(str) {
     return str === reverseString(str);
 }
 
 // 4.
 // I see nothing wring with this function.
-function multiply(a, b) {
+/* export */ function multiply(a, b) {
     return a * b;
 }
 
 // 5.
-function nextId(str) {
-    const re = /^(.+?)(\d*)$/;
+/* export */ function nextId(str) {
+    const re = /^(.*?)(\d*)$/;
 
     const match = str.match(re);
 

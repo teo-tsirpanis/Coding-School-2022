@@ -1,9 +1,23 @@
+// import {reverseString, isPalindrome, nextId} from "./business_logic.mjs";
+// :-(
+
 // 1.
 const reverseInput = document.getElementById("reverse-input");
 const reverseOutput = document.getElementById("reverse-output");
 
 reverseInput.addEventListener("input", () => {
     reverseOutput.innerText = reverseString(reverseInput.value);
+});
+
+// 2.
+const isPalindromeInput = document.getElementById("is-palindrome-input");
+const isPalindromeOutput = document.getElementById("is-palindrome-output");
+
+isPalindromeInput.addEventListener("input", () => {
+    if (isPalindromeInput.value === "")
+        isPalindromeOutput.innerText = "";
+    else
+        isPalindromeOutput.innerText = isPalindrome(isPalindromeInput.value) ? "Yes" : "No";
 });
 
 // 3.
@@ -18,22 +32,6 @@ const btnUpdate = document.getElementById("btn-update");
 const btnDelete = document.getElementById("btn-delete");
 
 let activeRow = null;
-
-function serializeCustomer(customer, dataset) {
-    dataset.name = customer.name;
-    dataset.surname = customer.surname;
-    dataset.age = customer.age;
-    dataset.gender = customer.gender;
-}
-
-function deserializeCustomer(dataset) {
-    return {
-        "name" : dataset.name,
-        "surname" : dataset.surname,
-        "age" : dataset.age,
-        "gender" : dataset.gender,
-    };
-}
 
 function setActiveCustomer(_) {
     if (this === activeRow)
@@ -92,4 +90,12 @@ btnDelete.addEventListener("click", () => {
     customerSurname.value = "";
     customerAge.value = "";
     customerGender.value = "";
+});
+
+// 5.
+const nextIdInput = document.getElementById("next-id-input");
+const btnNextId = document.getElementById("btn-next-id");
+
+btnNextId.addEventListener("click", () => {
+    nextIdInput.value = nextId(nextIdInput.value);
 });
